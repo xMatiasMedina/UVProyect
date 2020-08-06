@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/remotebackground"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/powerButtonFrame"
+        android:layout_width="match_parent"
+        android:layout_height="238dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:soundEffectsEnabled="false">
+
+        <FrameLayout
+            android:id="@+id/imageFrame"
+            android:layout_width="249dp"
+            android:layout_height="212dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@drawable/poweroff">
+
+            <Button
+                android:id="@+id/bt_power"
+                android:layout_width="249dp"
+                android:layout_height="167dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="bottom|center"
+                android:background="@android:color/transparent"
+                android:onClick="poweron"
+                android:soundEffectsEnabled="false"/>
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/centerframe"
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="241dp"
+        android:soundEffectsEnabled="false">
+
+        <FrameLayout
+            android:id="@+id/padframe"
+            android:layout_width="254dp"
+            android:layout_height="196dp"
+            android:layout_gravity="center"
+            android:background="@drawable/finalselectpad">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/bt_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="addTime"
+                    android:soundEffectsEnabled="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="79dp"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/bt_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:onClick="moveLeft"
+                        android:soundEffectsEnabled="false" />
+
+                    <Button
+                        android:id="@+id/bt_home"
+                        android:layout_width="101dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:onClick="connect"
+                        android:soundEffectsEnabled="false" />
+
+                    <Button
+                        android:id="@+id/bt_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="79dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:onClick="moveRight"
+                        android:soundEffectsEnabled="false" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bt_down"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="takeTime"
+                    android:soundEffectsEnabled="false"/>
+
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/timerframe"
+        android:layout_width="410dp"
+        android:layout_height="97dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="0dp">
+
+        <FrameLayout
+            android:id="@+id/timerImageFrame"
+            android:layout_width="338dp"
+            android:layout_height="79dp"
+            android:layout_gravity="center"
+            android:background="@drawable/displayboard">
+
+            <LinearLayout
+                android:id="@+id/timerslotslayout"
+                android:layout_width="301dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/timer_slot1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/nothing" />
+
+                <ImageView
+                    android:id="@+id/timer_slot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/nothing" />
+
+                <ImageView
+                    android:id="@+id/timer_points1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/points" />
+
+                <ImageView
+                    android:id="@+id/timer_slot3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/nothing" />
+
+                <ImageView
+                    android:id="@+id/timer_slot4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/nothing" />
+
+                <ImageView
+                    android:id="@+id/timer_points2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/points" />
+
+                <ImageView
+                    android:id="@+id/timer_slot5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/nothing" />
+
+                <ImageView
+                    android:id="@+id/timer_slot6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/nothing" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/displayframe"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="145dp">
+
+        <FrameLayout
+            android:id="@+id/displayimageframe"
+            android:layout_width="321dp"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:background="@drawable/displayboard">
+
+            <LinearLayout
+                android:id="@+id/displayslotslayout"
+                android:layout_width="295dp"
+                android:layout_height="31dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/dslot1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/u" />
+
+                <ImageView
+                    android:id="@+id/dslot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/v" />
+
+                <ImageView
+                    android:id="@+id/dslot3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/p" />
+
+                <ImageView
+                    android:id="@+id/dslot4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/r" />
+
+                <ImageView
+                    android:id="@+id/dslot5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/o" />
+
+                <ImageView
+                    android:id="@+id/dslot6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/y" />
+
+                <ImageView
+                    android:id="@+id/dslot7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/e" />
+
+                <ImageView
+                    android:id="@+id/dslot8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/c" />
+
+                <ImageView
+                    android:id="@+id/dslot9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/t" />
+
+                <ImageView
+                    android:id="@+id/dslot10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+
+                <ImageView
+                    android:id="@+id/dslot20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/d0" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+</RelativeLayout>
